@@ -22,16 +22,12 @@ function countrySelection(countries) {
 const onInputValue = (e) => {
   e.preventDefault();
 
-  
-
   fetchArticles(e.target.value).then(countries => {
     countrySelection(countries);
   });
 
   refs.articlesContainer.innerHTML = "";
   e.target.value = "";
-    
-
 };
 
 refs.inputRef.addEventListener("input", lodash.debounce(onInputValue, 1000));
