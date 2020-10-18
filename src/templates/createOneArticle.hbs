@@ -11,14 +11,15 @@
         <li>
             <p><b>Languages: </b></p>
         </li>
-        <ul>
+        <ul class="languages-list">
             {{#each languages}}
-            <li>{{name}}</li>
+            <li class="languages-list-countries">{{name}}</li>
             {{/each}}
         </ul>
     </div>
+    <div class="flex-image">
+        <img src="{{flag}}" alt="The flag of {{name}}">
+    </div>
 </div>
-<div class="flex-image">
-    <img src="{{flag}}" alt="The flag of {{name}}">
-</div>
+
 {{/each}}

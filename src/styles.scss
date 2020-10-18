@@ -15,19 +15,54 @@ body {
 
 }
 
+.inputCountry {
+  font-size: 24px;
+  width: 600px;
+  height: 40px;
+}
+
+.input {
+  display: flex;
+  justify-content: center;
+}
+
 .country-name {
   display: flex;
   justify-content: center;
   font-size: 60px;
 }
 
-
-
-.flex-image {
-  display: flex;
-  flex: ;
+.flex-text {
+  list-style: none;
+  font-size: 23px;
 }
 
-.flex-text {
-  // display: flex;
+.flex-container {
+  display: flex;
+    width: 790px;
+    justify-content: space-around;
+    margin: 0 auto;
+}
+
+
+.flex-image img {
+  width: 320px;
+}
+
+.articles-list {
+  font-size: 24px;
+}
+
+.list-countries {
+  font-size: 30px;
+  margin-left: 400px;
+}
+
+.languages-list-countries {
+  list-style-type: disc;
+  font-size: 30px;
+}
+
+.countries {
+  
 }
