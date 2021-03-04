@@ -1,3 +1,13 @@
 {{#each this}}
-<li class="list-countries">{{name}}</li>
+<li class="list-countries">
+    <label><input type="checkbox" id="checkbox" class="checkbox">Сохранить в мой список</label>
+    <p class="country-name"><b>{{@index}}. {{name}}</b></p>
+    <div class="flex-container">
+        <div class="flex-text">
+            <p><b>Country: </b>{{country}}</p>
+            <a href="{{web_pages}}"><b>Web-Site </b></a>
+            <p><b>Domains: </b><a href="#">http://{{domains}}</a></>
+            <p class="last_par"><b>Alpha Two Code: </b>{{alpha_two_code}}</p>
+        </div>
+</li>
 {{/each}}

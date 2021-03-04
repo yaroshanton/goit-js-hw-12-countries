@@ -2,32 +2,47 @@ import "./styles.scss";
 import refs from "./js/refs";
 import fetchArticles from "./js/fetchCountries";
 import createManyArticles from "./templates/createManyArticles.hbs";
-import createOneArticle from "./templates/createOneArticle.hbs";
 import createArticlesMurkup from "./js/createArticlesMurkup";
-import { error, defaultModules, } from "@pnotify/core/dist/PNotify.js";
-import '@pnotify/core/dist/BrightTheme.css';
 
-import lodash from "lodash";
+
+// Функция создания разметки
 
 function countrySelection(countries) {
-  if (countries.length === 1) {
-    return createArticlesMurkup(countries, createOneArticle);
-  } else if (countries.length > 10) {
-    error("Too many matches found. Please enter a more specific query!");
-  } else if (countries.length > 1 && countries.length < 10) {
-    return createArticlesMurkup(countries, createManyArticles);
-  }
+  return createArticlesMurkup(countries, createManyArticles);
+
 }
+
+// Обработчик сброса и fetch
 
 const onInputValue = (e) => {
   e.preventDefault();
 
-  fetchArticles(e.target.value).then(countries => {
-    countrySelection(countries);
-  });
-
+  const query = e.currentTarget.elements.query.value;
+  if (query.length > 0) {
+    fetchArticles(query).then(countries => {
+      countrySelection(countries);
+    });
+  }
   refs.articlesContainer.innerHTML = "";
-  e.target.value = "";
+  e.target.query.value = "";
 };
 
-refs.inputRef.addEventListener("input", lodash.debounce(onInputValue, 1000));
+refs.inputForm.addEventListener("submit", onInputValue);
+
+
+// Обработчик сброса
+
+const onButtonCancel = () => {
+  refs.articlesContainer.innerHTML = "";
+}
+
+refs.buttonCancel.addEventListener("click", onButtonCancel);
+
+// Обработчик checkbox
+
+document.addEventListener('change', function (e) {
+  if (e.target.tagName === 'INPUT' && e.target.type === 'checkbox') {
+    const cb = [...document.querySelectorAll('input[type="checkbox"]:checked')];
+    refs.checkboxChecked.innerHTML = `Выбрано: ${cb.length}`;
+  }
+});

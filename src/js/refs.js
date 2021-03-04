@@ -1,6 +1,9 @@
 const refs = {
   articlesContainer: document.querySelector("#js-articles"),
-  inputRef: document.querySelector("#js-input"),
+  inputForm: document.querySelector("#input-form"),
+  buttonCancel: document.querySelector("#button-cancel"),
+  checkbox: document.querySelector('#checkbox'),
+  checkboxChecked: document.querySelector('#checkbox-checked')
 };
 
 export default refs;

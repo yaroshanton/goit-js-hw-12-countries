@@ -1,5 +1,5 @@
 function fetchArticles(searchQuery) {
-  const url = `https://restcountries.eu/rest/v2/name/${searchQuery}`;
+  const url = `http://universities.hipolabs.com/search?country=${searchQuery}`;
 
   return fetch(url)
     .then((res) => res.json())
